@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Family Finances</title>
+  <meta name="description" content="A private, offline-first budget and money tracker for the whole family.">
+  <meta name="theme-color" content="#2a78d6">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="icon.svg" alt="" width="28" height="28">
+      <span>Family Finances</span>
+    </div>
+    <button class="btn primary" id="quick-add" type="button">+ Add<span class="hide-sm"> transaction</span></button>
+  </header>
+
+  <nav class="tabs" id="tabs" aria-label="Sections">
+    <button type="button" data-view="dashboard">Dashboard</button>
+    <button type="button" data-view="transactions">Transactions</button>
+    <button type="button" data-view="budgets">Budgets</button>
+    <button type="button" data-view="bills">Bills</button>
+    <button type="button" data-view="goals">Goals</button>
+    <button type="button" data-view="accounts">Accounts</button>
+    <button type="button" data-view="settings">Settings</button>
+  </nav>
+
+  <main id="view" tabindex="-1"></main>
+
+  <dialog id="modal">
+    <form method="dialog" id="modal-form" novalidate>
+      <h2 id="modal-title"></h2>
+      <div id="modal-body"></div>
+      <p class="form-error" id="modal-error" role="alert"></p>
+      <div class="modal-actions">
+        <button type="button" class="btn danger" id="modal-delete" hidden>Delete</button>
+        <span class="spacer"></span>
+        <button type="button" class="btn" id="modal-cancel">Cancel</button>
+        <button type="submit" class="btn primary" id="modal-save">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="tooltip" id="tooltip" role="tooltip"></div>
+
+  <script src="js/core.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
